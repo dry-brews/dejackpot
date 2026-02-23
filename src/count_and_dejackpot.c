@@ -20,8 +20,11 @@
  *                   Place uthash.h next to this file (or anywhere on your include path).
  *
  * Recommended build commands:
- *   gcc  -O2 -o count_and_dejackpot count_and_dejackpot.c -lz -lm
- *   clang -O2 -o count_and_dejackpot count_and_dejackpot.c -lz -lm
+ *   gcc  -std=c99 -O2 -o count_and_dejackpot count_and_dejackpot.c -lz -lm
+ *   clang -std=c99 -O2 -o count_and_dejackpot count_and_dejackpot.c -lz -lm
+ *
+ * Note: -std=c99 is required on older GCC installations (common on clusters)
+ * that default to C89.  Use -std=gnu99 if you need GNU extensions.
  *
  * If uthash.h is in a non-standard location add -I/path/to/uthash/.
  * For debug builds add -g -fsanitize=address,undefined.
