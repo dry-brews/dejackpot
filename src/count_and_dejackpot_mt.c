@@ -23,8 +23,13 @@
  *   3. pthreads   – POSIX threads (included with glibc; link with -lpthread)
  *
  * Recommended build commands:
- *   gcc  -O2 -o count_and_dejackpot_mt count_and_dejackpot_mt.c -lz -lm -lpthread
- *   clang -O2 -o count_and_dejackpot_mt count_and_dejackpot_mt.c -lz -lm -lpthread
+ *   gcc  -std=c99 -O2 -o count_and_dejackpot_mt count_and_dejackpot_mt.c -lz -lm -lpthread
+ *   clang -std=c99 -O2 -o count_and_dejackpot_mt count_and_dejackpot_mt.c -lz -lm -lpthread
+ *
+ * Note: -std=c99 is required.  Older GCC installations (common on clusters)
+ * default to C89, which does not allow loop-variable declarations (for (int i…))
+ * or designated struct initialisers (.field = value).  Use -std=gnu99 instead
+ * of -std=c99 if you need GNU extensions (e.g. strdup, getline).
  *
  * ── THREADING DESIGN ─────────────────────────────────────────────────────────
  *
